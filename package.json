@@ -1,0 +1,20 @@
+{
+  "name": "feel-the-weather",
+  "version": "1.0.0",
+  "description": "Feel the weather with React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cliener/feel-the-weather.git"
+  },
+  "author": "Chris Lienert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cliener/feel-the-weather/issues"
+  },
+  "homepage": "https://github.com/cliener/feel-the-weather#readme",
+  "dependencies": {}
+}

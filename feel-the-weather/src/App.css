@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+.ftw-logo {
+  height: 150px;
+}
+
+.ftw-header {
+  background-color: #fff;
+  padding: 20px;
+  color: #222;
+  background: url("./images/background-header.jpg") no-repeat center;
+}
+
+.ftw-header h1 {
+  background: rgba(255, 255, 255, 0.2);
+  min-width: 15em;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 0.5em 0;
+}
+
+.ftw-emoji {
+  display: block;
+  font-size: 2em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
