@@ -4,14 +4,6 @@ import logo from "./images/logo-ffcph.svg";
 import "./App.css";
 
 class App extends Component {
-  ComponentDidMount() {
-    console.log("mounting");
-  }
-
-  ComponentDidUpdate() {
-    console.log("updating");
-  }
-
   render() {
     return (
       <div className="App">
