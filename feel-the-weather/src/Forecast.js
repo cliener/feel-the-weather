@@ -18,7 +18,7 @@ class Forecast extends Component {
       return;
     }
 
-    Client.search("Taguig", data => {
+    Client.search(this.props.location, data => {
       this.setState({
         weatherData: data.query.results.channel,
       });
