@@ -4,25 +4,44 @@ import Client from "./Client";
 
 class Forecast extends Component {
   state = {
+    isLoading: false,
     weatherData: null,
-    alert: null,
+    error: null,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.UpdateWeather();
   }
 
   UpdateWeather() {
     if (!navigator.onLine) {
-      this.setState({alert: "You're not connected to the Internet."})
+      this.setState({error: "You're not connected to the Internet."})
       return;
     }
 
-    Client.search("Taguig", data => {
+    // prevent multiple simultaneous requests
+    if (this.state.isLoading) {
+      return;
+    }
+
+    this.setState({
+      isLoading: true,
+      error: null
+    });
+
+    Client.search("Taguig")
+    .then(response => response.json())
+    .then(data => {
       this.setState({
-        weatherData: data.query.results.channel,
+        isLoading: false,
+        weatherData: data.query.results.channel
       });
-    })
+    }, error => {
+      this.setState({
+        isLoading: false,
+        error,
+      })
+    });
   }
 
   FeelIt = weather => {
@@ -117,9 +136,10 @@ class Forecast extends Component {
   }
 
   render() {
-    let alert = this.state.alert;
+    let error = this.state.error;
 
     const weather = this.state.weatherData;
+    const isLoading = this.state.isLoading;
     const { location } = this.props;
 
     return (
@@ -130,8 +150,10 @@ class Forecast extends Component {
         this.GetWeatherDescription(weather)
       }
       <p><button type="button" onClick={() => this.UpdateWeather()}>Update</button></p>
-      {alert && 
-        <p className="ftw-alert">{alert}</p>}
+      {isLoading && 
+        <p>Please hold&hellip;</p>}
+      {error && 
+        <p className="ftw-error">{error}</p>}
       </div>
     );
   }
