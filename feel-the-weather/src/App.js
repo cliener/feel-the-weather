@@ -12,7 +12,7 @@ class App extends Component {
           <h1>😎 Feel the Weather 🌤</h1>
         </div>
         <Forecast
-          location="Singapore"
+          location="Taguig"
         />
       </div>
     );
