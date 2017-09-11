@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Client from "./Client";
+import WeatherEmoji from "./WeatherEmoji";
 
 class Forecast extends Component {
   state = {
@@ -9,11 +10,11 @@ class Forecast extends Component {
     error: null,
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.UpdateWeather();
   }
 
-  UpdateWeather() {
+  UpdateWeather = () => {
     if (!navigator.onLine) {
       this.setState({error: "You're not connected to the Internet."})
       return;
@@ -30,7 +31,6 @@ class Forecast extends Component {
     });
 
     Client.search("Taguig")
-    .then(response => response.json())
     .then(data => {
       this.setState({
         isLoading: false,
@@ -145,7 +145,7 @@ class Forecast extends Component {
     return (
       <div>
       {weather && 
-        <h2>{location} will make you feel <span className="ftw-emoji">{this.FeelIt(weather)}</span></h2>}
+        <h2>{location} will make you feel <WeatherEmoji weather={weather}/></h2>}
       {weather &&
         this.GetWeatherDescription(weather)
       }
