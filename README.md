@@ -13,6 +13,6 @@ SitePoint have a great [npm guide](https://www.sitepoint.com/beginners-guide-nod
 * `create-react-app feel-the-weather`
 
 ### Create Your project
-* `cd feel-the-weather` (Mac/Unix) or `dir feel-the-weather` (Win)
+* `cd feel-the-weather`
 * `npm start`
 
